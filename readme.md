@@ -3,7 +3,7 @@
 
 项目地址：
 
-https://github.com/Genymobile/scrcpy
+> https://github.com/Genymobile/scrcpy
 
 这里以 Windows 为例，安装起来非常简单：
 
@@ -17,8 +17,10 @@ https://github.com/Genymobile/scrcpy
 
 图片
 这样，在电脑上运行 Scrcpy 指令：
-
+```powershell
 scrcpy
+```
+
 就能将手机画面投放到电脑上了。
 
 图片
@@ -26,7 +28,7 @@ scrcpy
 
 但是，如果想要让代码自动化控制，那就还需要另外一款工具。
 
-uiautomator2
+# uiautomator2
 UiAutomator 是 Google 提供的用来做安卓自动化测试的一个 Java 库，基于 Accessibility 服务。功能很强，可以对第三方 App 进行测试，获取屏幕上任意一个 APP 的任意一个控件属性，并对其进行任意操作，但有两个限制：
 
 测试脚本只能使用 Java 语言
@@ -35,17 +37,22 @@ UiAutomator 是 Google 提供的用来做安卓自动化测试的一个 Java 库
 
 项目地址：
 
-https://github.com/openatx/uiautomator2
+> https://github.com/openatx/uiautomator2
 
 安装方法也非常简单，直接 pip 安装即可，不过为了方便环境的管理，还是先创建一个 Conda 虚拟环境。
-
+```powershell
 conda create -n android
+```
+
 然后激活这个虚拟环境：
-
+```powershell
 conda activate android
+```
 安装 uiautomator2 和 weditor。
-
+```powershell
 python -m pip install uiautomator2 weditor
+```
+
 然后用手机打开想要操控的 App，比如 BiliBili，打开软件后，使用 Weditor 审查元素。
 
 python -m weditor
@@ -53,7 +60,7 @@ python -m weditor
 
 图片
 比如我想要给一个视频三连，那就审查三连的元素，然后将操作用代码流程化。
-
+```python
 import uiautomator2 as u2
 import time
 from PIL import Image
@@ -110,6 +117,7 @@ if __name__ == "__main__":
 
     time.sleep(0.1)
     follow_the_up(d)
+``` 
 效果是这样的：
 
 
